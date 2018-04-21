@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Vnos</title>
+    
+
+                <link rel="stylesheet" type="text/css" href="/CSS/meni.css">
+  </head>
+
+  <style>
+                
+               
+      .sredina{
+      text-align: center;
+      
+      display: flex;
+      justify-content: center;
+  
+  
+  
+  }
+  
+.stran{
+   margin-top: 1%;
+
+}
+  
+  
+  
+
+  th{
+      text-align: center;
+
+
+  }
+  .tabela{
+      text-align: center;
+      align-self: center;
+      border-color: #60B4E3;
+      background-color: #356D8F;
+      color: black;
+       
+  }
+.meni{
+
+    padding: none;
+    margin: none;
+    
+}
+.vnosi{
+   
+  color: blue;
+  text-align: center;
+
+}
+.neki{
+  background-color: #356D8F;
+  text-align: center;
+  color: #CDEAF4;
+  
+
+}
+
+
+  
+  </style>
+
+  <body ng-controller="demoController">
+      <nav class="navbar navbar-expand-lg nav">
+          <a class="navbar-brand">Znam_py</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/novTest.html">Nov test <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/adminNaloge.html">Vse naloge</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/vsiDijaki">Vsi dijaki</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+    <br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-4"></div>
+    <div class="col-xl-4">
+        <form action="/dodajNalogo" class ="vnosi"method="POST">
+<div class="row">
+          <div class="col neki">
+              <label>Navodila</label>
+              <textarea type="text" class="form-control" name="navodila" value="{{naloge[izbranID].navodila}}" rows="3"></textarea>
+              
+            </div>
+</div>
+<div class="row">
+  
+            <div class="col neki">
+                <label>Tip</label>
+                <input type="text" class="form-control " name="tip" placeholder="tip">
+                
+              </div>
+
+              <div class="col neki">
+                <label>Točke</label>
+                <input type="text" class="form-control " name="tocke" placeholder="točke">
+                
+              </div>
+</div>
+<div class="row">
+              <div class="col neki">
+                <label>Vnos 1</label>
+                <input type="text" class="form-control " name="vnos1" placeholder="vnos 1">
+                
+              </div>
+
+              <div class="col neki">
+                <label>resitev 1</label>
+                <input type="text" class="form-control " name="resitev1" placeholder="resitev 1">
+                
+              </div>
+</div>
+<div class="row">
+
+              <div class="col neki">
+                <label>Vnos 2</label>
+                <input type="text" class="form-control " name="vnos2" placeholder="vnos 2">
+                
+              </div>
+
+              <div class="col neki">
+                <label>resitev 2</label>
+                <input type="text" class="form-control " name="resitev2" placeholder="resitev 2">
+                
+              </div>
+
+</div>
+<div class="row">
+                <div class="col neki">
+                <label>Vnos 3</label>
+                <input type="text" class="form-control " name="vnos3" placeholder="vnos 3">
+                
+              </div>
+
+              <div class="col neki">
+                <label>resitev 3</label>
+                <input type="text" class="form-control " name="resitev3" placeholder="resitev 3">
+                
+              </div>
+</div>
+<div class="row">
+
+              <div class="col neki">
+                <label>Vnos 4</label>
+                <input type="text" class="form-control " name="vnos4" placeholder="vnos 4">
+                
+              </div>
+
+              <div class="col neki">
+                <label>resitev 4</label>
+                <input type="text" class="form-control " name="resitev4" placeholder="resitev 4">
+                
+              </div>
+</div>
+<div class="row">
+
+              <div class="col neki">
+                <label>Vnos 5</label>
+                <input type="text" class="form-control " name="vnos5" placeholder="vnos 5">
+                
+              </div>
+
+              <div class="col neki">
+                <label>resitev 5</label>
+                <input type="text" class="form-control " name="resitev5" placeholder="resitev 5">
+                
+                <br>
+              </div>
+            
+</div>
+<br>
+            <button type="submit" class="btn btn-outline-secondary neki">Submit</button>
+          </form>
+
+
+
+
+      </div>
+      </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>

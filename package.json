@@ -1,0 +1,33 @@
+{
+  "name": "zaklucna",
+  "version": "1.0.0",
+  "description": "\"# zaklucna_nodejs\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rokserak/zaklucna_nodejs.git"
+  },
+  "author": "Rok Serak, Zan Ostroznik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rokserak/zaklucna_nodejs/issues"
+  },
+  "homepage": "https://github.com/rokserak/zaklucna_nodejs#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
+    "mysql": "^2.15.0",
+    "pug": "^2.0.0-rc.4",
+    "python-bridge": "^1.0.3",
+    "python-shell": "^0.5.0",
+    "wait.for": "^0.6.6"
+  }
+}

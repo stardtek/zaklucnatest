@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title= idT
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
+        style
+            include pug.css
+    body
+
+        nav(class="navbar navbar-expand-lg nav")
+            a(class="navbar-brand")= "Znam_py"
+            button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse" id="navbarNav")
+                ul(class="navbar-nav")
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/novTest")= "Nov test"
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/adminNaloge")= "Vse naloge"
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/vsidijaki")= "Vsi dijaki"
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-xl-4 sez")
+                div(class="col-xl-4 sez")
+
+
+                    h1= idT
+                    table(class="table nalogeoducencu" border="1")
+                        tr
+                            th naloga
+                            th navodila
+                            th koda
+                            th dosežene tocke
+                        tr
+                            td 1.
+                            td= test.n1Navodila
+                            td= test.koda1
+                            td= test.naloga1
+                        tr
+                            td 2.
+                            td= test.n2Navodila
+                            td= test.koda2
+                            td= test.naloga2
+                        tr
+                            td 3.
+                            td= test.n3Navodila
+                            td= test.koda3
+                            td= test.naloga3
+                        tr
+                            td 4.
+                            td= test.n4Navodila
+                            td= test.koda4
+                            td= test.naloga4

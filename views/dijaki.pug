@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Vsi Dijaki
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
+        style
+            include pug.css
+    body
+        
+        nav(class="navbar navbar-expand-lg nav")
+            a(class="navbar-brand")= "Znam_py"
+            button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse" id="navbarNav")
+                ul(class="navbar-nav")
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/novTest")= "Nov test"
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/adminNaloge")= "Vse naloge"
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/vsidijaki")= "Vsi dijaki"
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-xl-4")
+                div(class="col-xl-4 sez")
+                    ul(class="list-group nalogeoducencu")
+                        each dijak in dijaki
+                            li(class="list-group-item nalogeoducencu")
+                                a(href=`/dijak/${dijak.username}`)= dijak.username
+                                br

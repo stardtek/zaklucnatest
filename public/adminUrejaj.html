@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="javascript/angular.min.js"></script>
+    <script>
+            var app = angular.module("myapp", []);
+                app.controller("nalogaCtrl", function($scope, $http){
+                    $http.get("/getNalogeInResitve").then(function(data) {
+                        console.log('dela');
+                        $scope.naloge = data.data;
+                        $scope.izbran = 'izberi nalogo';
+                        $scope.izbranID = null;
+                    });
+                    $scope.fillForm = function(id){
+                        $scope.izbranID = id;
+                        $scope.izbran = 'naloga' + $scope.naloge[id].idnaloge;
+                        console.log($scope.izbranID);
+                    }
+                    
+                    
+                });
+    
+    </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Spremeni</title>
+    
+
+    <link rel="stylesheet" type="text/css" href="/CSS/meni.css">
+
+</head>
+<style>
+    
+   
+    .sredina{
+    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+
+
+
+}
+
+.stran{
+ margin-top: 1%;
+
+}
+
+
+
+
+th{
+    text-align: center;
+
+
+}
+.tabela{
+    text-align: center;
+    align-self: center;
+    border-color: #60B4E3;
+    background-color: #356D8F;
+    color: black;
+     
+}
+.meni{
+
+  padding: none;
+  margin: none;
+  
+}
+.vnosi{
+   
+    
+   text-align: center;
+ 
+ }
+ .neki{
+   background-color: #356D8F;
+   text-align: center;
+   color: #CDEAF4;
+   margin: 0%;
+   padding: 0%;
+   
+   
+   
+ 
+ }
+
+</style>
+
+  <body ng-controller="nalogaCtrl">
+        
+                <nav class="navbar navbar-expand-lg nav">
+                    <a class="navbar-brand">Znam_py</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/novTest.html">Nov test <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/adminNaloge.html">Vse naloge</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/vsiDijaki">Vsi dijaki</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+    <div class="container-fluid">
+               
+        <div class="row">
+            <div class="col-xl-4">
+            </div>
+
+            <div class="col-xl-4">
+            <div class="row">
+    
+                    <div class="col">
+                        <br>
+                        <div class="dropdown vnosi">
+                            <button class="btn gumb dropdown-toggle" type="button" id="dropdownNaloge" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{izbran}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownNaloge">
+                                <button class="dropdown-item" type="button" ng-repeat="n in naloge" ng-click="fillForm($index)"> {{n.idnaloge}} </button>
+                                
+                            </div>
+                        </div>
+    
+                    </div>
+    </div>
+                    <div class="col">
+                        <br>
+    
+                        <form action="/updateNaloga" class="vnosi" method="POST">
+                            <div class="row">
+                            <div class="col neki">
+                                <label for="ime">ID</label>
+                                <input class="form-control" type="text" name="id" value="{{naloge[izbranID].idnaloge}}" readonly>
+                                
+                            </div>
+    </div>
+    <div class="row">
+                            <div class="col neki">
+                                <label for="ime">Navodila</label>
+                                <textarea type="text" class="form-control" name="navodila" rows="3">{{naloge[izbranID].navodila}}</textarea>
+                                <br>
+                            </div>
+
+                            </div>
+                            <div class="row">
+                            
+                            <div class="col neki">
+                                <label for="opis">Pike</label>
+                                <input type="text" class="form-control" name="pike" value="{{naloge[izbranID].pike}}" readonly>
+                                
+                            </div>
+    
+                            <div class="col neki">
+                                <label for="cena">Tip naloge</label>
+                                <input type="text" class="form-control" name="tipNaloge" value="{{naloge[izbranID].tipNaloge}}">
+                                
+                            </div>
+                            </div>
+                            <div class="row">
+    
+                                <div class="col neki">
+                                    <label for="zaloga">Vnos 1</label>
+                                    <input type="text" class="form-control" name="vnos1" value="{{naloge[izbranID].vnos1}}">
+                                    
+                                </div>
+        
+                                <div class="col neki">
+                                    <label for="slika">Resitev 1</label>
+                                    <input type="text" class="form-control" name="resitev1" value="{{naloge[izbranID].resitev1}}">
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col neki">
+                                    <label for="zaloga">Vnos 2</label>
+                                    <input type="text" class="form-control" name="vnos2" value="{{naloge[izbranID].vnos2}}">
+                                    
+                                </div>
+            
+                                <div class="col neki">
+                                    <label for="slika">Resitev 2</label>
+                                    <input type="text" class="form-control" name="resitev2" value="{{naloge[izbranID].resitev2}}">
+                                        
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col neki">
+                                    <label for="zaloga">Vnos 3</label>
+                                    <input type="text" class="form-control" name="vnos3" value="{{naloge[izbranID].vnos3}}">
+                                            
+                                </div>
+                
+                                <div class="col neki">
+                                    <label for="slika">Resitev 3</label>
+                                    <input type="text" class="form-control" name="resitev3" value="{{naloge[izbranID].resitev3}}">
+                                            
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col neki">
+                                    <label for="zaloga">Vnos 4</label>
+                                    <input type="text" class="form-control" name="vnos4" value="{{naloge[izbranID].vnos4}}">
+                                                
+                                </div>
+                    
+                                <div class="col neki">
+                                    <label for="slika">Resitev 4</label>
+                                    <input type="text" class="form-control" name="resitev4" value="{{naloge[izbranID].resitev4}}">
+                                                
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="col neki">
+                                        <label for="zaloga">Vnos 5</label>
+                                        <input type="text" class="form-control" name="vnos5" value="{{naloge[izbranID].vnos5}}">
+                                                    
+                                    </div>
+                        
+                                    <div class="col neki">
+                                        <label for="slika">Resitev 5</label>
+                                        <input type="text" class="form-control" name="resitev5" value="{{naloge[izbranID].resitev5}}">
+                                                    
+                                        <br>
+                                    </div>
+                                </div>
+                                <br>
+                            
+    
+                            <button type="submit" class="btn btn-outline-secondary neki gumb">Uredi nalogo</button>
+                        </form>
+                        </div>
+                    
+                    </div>
+    
+               
+    
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
