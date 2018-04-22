@@ -1,3 +1,3 @@
-def test(k):
-    print("ratat")
-test("aavvttoo")
+def rat(x):
+    print("ar")
+rat("ratatataaaaa")

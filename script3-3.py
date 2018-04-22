@@ -1,3 +1,3 @@
-def test(k,kk):
-    print("ratat")
-test("cirkus","rattatat afro cir rattat kus tatatat")
+def rat(x):
+    print("ar")
+rat([0,1,0,1,0,1,0,1])

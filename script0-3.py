@@ -1,3 +1,3 @@
-def test(k,kk):
-    print("ratat")
-test("dol z vlado","še  dobro,  da  lahko  z  volitvami  vplivamo  na  dobrobit  naroda")
+def rat(x):
+    print("ar")
+rat([11,44,55,88,34,67,187,5,0])

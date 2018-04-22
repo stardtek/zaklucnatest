@@ -1,3 +1,3 @@
-def test(k,kk):
-    print("ratat")
-test("dela","doma milka milke la")
+def rat(x):
+    print("ar")
+rat([55,66,0,0,0,55,100])

@@ -1,3 +1,3 @@
-def test(k,kk):
-    print("ratat")
-test("roki","rakov krakov ime")
+def rat(x):
+    print("ar")
+rat([1,2,3,4,5,6,7,8,9,10,0])
