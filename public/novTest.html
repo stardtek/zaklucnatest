@@ -1,8 +1,20 @@
+
+
+
+
 <!doctype html>
-<html ng-app="app">
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="javascript/angular.min.js"></script>
+<html lang="en" ng-app="app">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Znam_py</title>
+
+    <script src="javascript/angular.min.js"></script>
         <script>
             var angularBridge = {};
             var app = angular.module("app", []);
@@ -128,7 +140,7 @@
 
             .navodila{
                 background-color: #60B4E3;
-                border-radius: 25px;
+                border-radius: 10px;
 
 
             }
@@ -139,332 +151,217 @@
 
             }
         </style>
-    </head>
-    <body ng-controller="demoController">
+
+  </head>
+  <body ng-controller="demoController">
         
-        <nav class="navbar navbar-expand-lg nav">
-            <a class="navbar-brand">Znam_py</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/novTest.html">Nov test <span class="sr-only">(current)</span></a>
+    <nav class="navbar navbar-expand-lg nav">
+        <a class="navbar-brand">Znam_py</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/novTest.html">Nov test <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminNaloge.html">Vse naloge</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vsiDijaki">Vsi dijaki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mojiTesti">Moji Testi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminDodaj">admin dodaj nalogo</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/adminUrejaj">admin spremeni nalogo</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminNaloge.html">Vse naloge</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/vsiDijaki">Vsi dijaki</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mojiTesti">Moji Testi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminDodaj">admin dodaj nalogo</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/adminUrejaj">admin spremeni nalogo</a>
-                        </li>
-                </ul>
-            </div>
-        </nav>
-        
-        
-        <div class="container-fluid">
-        <br>
-                    <div class="row">
-                
-                        <div class="col-xl-2"></div>
-                <div class="col-xl-4 navodila">
-                    <h3 id="navodila1">{{naloge[0].navodila}}</h3>
-                </div>
-                <div class="col-xl-1">
-                        
-                </div>
-                <div class="col-xl-1 navodila">
-                    <p>tocke: {{naloge[0].pike}}</p>
-                </div>
-            </div>
-
-
-            <br>
-
-
-            <div class="row">
-                    <div class="col-xl-2"></div>
-                <div class="col-xl-5">
-                    <div id="editor0"></div>                           
-                </div>
-                <div class="col-xl-2">
-                    <button class="btn" id="poslji0" ng-click="run0()">run</button>
-                    
-                    
-                        <p id="resitev0" ng-repeat="vrstica in resitev0 track by $index">{{vrstica}}</p>
-                    
-
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
-                    <div class="col-xl-2"></div>
-                    <div class="col-xl-4 navodila">
-                        <h3 id="navodila2">{{naloge[1].navodila}}</h3>
-                    </div>
-                    <div class="col-xl-1">
-                        
-                    </div>
-                <div class="col-xl-1 navodila">
-                    <p>tocke: {{naloge[1].pike}}</p>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                    <div class="col-xl-2"></div>
-                <div class="col-xl-5">
-                    <div id="editor1"></div>                           
-                </div>
-                <div class="col-xl-2">
-                        <button class="btn" id="poslji1" ng-click="run1()">run</button>
-                    
-                    
-                        <p id="resitev1" ng-repeat="vrstica in resitev1 track by $index">{{vrstica}}</p>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                    <div class="col-xl-2"></div>
-                <div class="col-xl-4 navodila">
-                    <h3 id="navodila3">{{naloge[2].navodila}}</h3>
-                </div>
-                <div class="col-xl-1">
-                        
-                </div>
-                <div class="col-xl-1 navodila">
-                    <p>tocke: {{naloge[2].pike}}</p>
-                </div>
-                    </div>
-
-                    <br>
-
-                <div class="row">
-                        <div class="col-xl-2"></div>
-                    <div class="col-xl-5">
-                        <div id="editor2"></div>                           
-                    </div>
-                    <div class="col-xl-2">
-                            <button class="btn" id="poslji2" ng-click="run2()">run</button>
-                    
-                    
-                            <p id="resitev2" ng-repeat="vrstica in resitev2 track by $index">{{vrstica}}</p>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                        <div class="col-xl-2"></div>
-                    <div class="col-xl-4 navodila">
-                        <h3 id="navodila4">{{naloge[3].navodila}}</h3>
-                    </div>
-                    <div class="col-xl-1">
-                        
-                    </div>
-                    <div class="col-xl-1  navodila">
-                        <p>tocke: {{naloge[3].pike}}</p>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                        <div class="col-xl-2"></div>
-                    <div class="col-xl-5">
-                        <div id="editor3"></div>                           
-                    </div>
-                    
-                    <div class="col-xl-2">
-                            <button class="btn" id="poslji3" ng-click="run3()">run</button>
-                    
-                    
-                            <p id="resitev3" ng-repeat="vrstica in resitev3 track by $index">{{vrstica}}</p>
-                    </div>
-                </div>
-
-                
-
-            <div class="row my-5">
-                    <div class="col-xl-2"></div>
-                <div class="col-xl-1">
-                    <button class ="btn" id="shrani">shrani</button>
-                </div>
-                <div class="col-xl-2">
-                    <button class="btn" id="oddaj" ng-click="oddajTest()">oddaj</button>
-                </div>
-            </div>
-            
+            </ul>
         </div>
-        <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script>
+    </nav>
+    
+    
+    <div class="container-fluid">
+    <br>
+                <div class="row">
+            
+                    <div class="col-xl-2"></div>
+            <div class="col-xl-4 navodila">
+                <h3 id="navodila1">{{naloge[0].navodila}}</h3>
+            </div>
+            <div class="col-xl-1">
+                    
+            </div>
+            <div class="col-xl-1 navodila">
+                <p>tocke: {{naloge[0].pike}}</p>
+            </div>
+        </div>
+
+
+        <br>
+
+
+        <div class="row">
+                <div class="col-xl-2"></div>
+            <div class="col-xl-5">
+                <div id="editor0"></div>                           
+            </div>
+            <div class="col-xl-2">
+                <button class="btn" id="poslji0" ng-click="run0()">izvedi</button>
+                
+                
+                    <p id="resitev0" ng-repeat="vrstica in resitev0 track by $index">{{vrstica}}</p>
+                
+
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+                <div class="col-xl-2"></div>
+                <div class="col-xl-4 navodila">
+                    <h3 id="navodila2">{{naloge[1].navodila}}</h3>
+                </div>
+                <div class="col-xl-1">
+                    
+                </div>
+            <div class="col-xl-1 navodila">
+                <p>tocke: {{naloge[1].pike}}</p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+                <div class="col-xl-2"></div>
+            <div class="col-xl-5">
+                <div id="editor1"></div>                           
+            </div>
+            <div class="col-xl-2">
+                    <button class="btn" id="poslji1" ng-click="run1()">izvedi</button>
+                
+                
+                    <p id="resitev1" ng-repeat="vrstica in resitev1 track by $index">{{vrstica}}</p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+                <div class="col-xl-2"></div>
+            <div class="col-xl-4 navodila">
+                <h3 id="navodila3">{{naloge[2].navodila}}</h3>
+            </div>
+            <div class="col-xl-1">
+                    
+            </div>
+            <div class="col-xl-1 navodila">
+                <p>tocke: {{naloge[2].pike}}</p>
+            </div>
+                </div>
+
+                <br>
+
+            <div class="row">
+                    <div class="col-xl-2"></div>
+                <div class="col-xl-5">
+                    <div id="editor2"></div>                           
+                </div>
+                <div class="col-xl-2">
+                        <button class="btn" id="poslji2" ng-click="run2()">izvedi</button>
+                
+                
+                        <p id="resitev2" ng-repeat="vrstica in resitev2 track by $index">{{vrstica}}</p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                    <div class="col-xl-2"></div>
+                <div class="col-xl-4 navodila">
+                    <h3 id="navodila4">{{naloge[3].navodila}}</h3>
+                </div>
+                <div class="col-xl-1">
+                    
+                </div>
+                <div class="col-xl-1  navodila">
+                    <p>tocke: {{naloge[3].pike}}</p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                    <div class="col-xl-2"></div>
+                <div class="col-xl-5">
+                    <div id="editor3"></div>                           
+                </div>
+                
+                <div class="col-xl-2">
+                        <button class="btn" id="poslji3" ng-click="run3()">izvedi</button>
+                
+                
+                        <p id="resitev3" ng-repeat="vrstica in resitev3 track by $index">{{vrstica}}</p>
+                </div>
+            </div>
+
             
 
-            var editor0 = ace.edit("editor0");
-            editor0.setTheme("ace/theme/dracula");
-            editor0.session.setMode("ace/mode/python");
-
-            var editor1 = ace.edit("editor1");
-            editor1.setTheme("ace/theme/monokai");
-            editor1.session.setMode("ace/mode/python");
-
-            var editor2 = ace.edit("editor2");
-            editor2.setTheme("ace/theme/dracula");
-            editor2.session.setMode("ace/mode/python");
-
-            var editor3 = ace.edit("editor3");
-            editor3.setTheme("ace/theme/monokai");
-            editor3.session.setMode("ace/mode/python");
-
+        <div class="row my-5">
+                <div class="col-xl-2"></div>
             
-        </script>
-        <script src="javascript/jquery-3.3.1.min.js"></script>
-        <script>
+            <div class="col-xl-2">
+                <button class="btn" id="oddaj" ng-click="oddajTest()">oddaj</button>
+            </div>
+        </div>
+        
+    </div>
+    <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        
+
+        var editor0 = ace.edit("editor0");
+        editor0.setTheme("ace/theme/dracula");
+        editor0.session.setMode("ace/mode/python");
+
+        var editor1 = ace.edit("editor1");
+        editor1.setTheme("ace/theme/monokai");
+        editor1.session.setMode("ace/mode/python");
+
+        var editor2 = ace.edit("editor2");
+        editor2.setTheme("ace/theme/dracula");
+        editor2.session.setMode("ace/mode/python");
+
+        var editor3 = ace.edit("editor3");
+        editor3.setTheme("ace/theme/monokai");
+        editor3.session.setMode("ace/mode/python");
+
+        
+    </script>
+    <script src="javascript/jquery-3.3.1.min.js"></script>
+    <script>
+
+    
 
         
 
-            /*
-            $('#poslji0').on('click', function(){
-                $.ajax({
-                    url: '/python',
-                    data: {data: editor0.getValue() },
-                    type: 'POST',
-                    dataType: 'json',
-                    jsonpCallback: 'callback',
-                    success: function(data){
-                        console.log(data);
-                        $('#resitev0').text(data.data);
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                    },
-                });
-            });
 
-            $('#poslji1').on('click', function(){
-                $.ajax({
-                    url: '/python',
-                    data: {data: editor1.getValue() },
-                    type: 'POST',
-                    dataType: 'json',
-                    jsonpCallback: 'callback',
-                    success: function(data){
-                        console.log(data);
-                        $('#resitev1').text(data.data);
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                    },
-                });
-            });
+        
 
-            $('#poslji2').on('click', function(){
-                $.ajax({
-                    url: '/python',
-                    data: {data: editor2.getValue() },
-                    type: 'POST',
-                    dataType: 'json',
-                    jsonpCallback: 'callback',
-                    success: function(data){
-                        console.log(data);
-                        $('#resitev2').text(data.data);
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                    },
-                });
-            });
+        
+        
+    </script>
+    
 
-            $('#poslji3').on('click', function(){
-                $.ajax({
-                    url: '/python',
-                    data: {data: editor3.getValue() },
-                    type: 'POST',
-                    dataType: 'json',
-                    jsonpCallback: 'callback',
-                    success: function(data){
-                        console.log(data);
-                        $('#resitev3').text(data.data);
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                    },
-                });
-            });
-
-            */
-
-
-            //shrani naloge v bazo
-            
-            $('#shrani').on('click', function(){
-                $.ajax({
-                    url: '/shraniTest',
-                    data: {
-                        nal1: angularBridge.$podatki.naloge[0].idnaloge,
-                        nal2: angularBridge.$podatki.naloge[1].idnaloge,
-                        nal3: angularBridge.$podatki.naloge[2].idnaloge,
-                        nal4: angularBridge.$podatki.naloge[3].idnaloge,
-                        koda1: editor0.getValue(),
-                        koda2: editor1.getValue(),
-                        koda3: editor2.getValue(),
-                        koda4: editor3.getValue(),
-                        koncal: 0 
-                    },
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(data){
-                        console.log('dela!!!');
-                        alert('test uspesno shranjen');
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                        alert('test uspesno shranjen');
-                    },
-                })
-            });
-
-            /*
-            $('#oddaj').on('click', function(){
-                $.ajax({
-                    url: '/oceniTest',
-                    data: {
-                        nal1: angularBridge.$podatki.naloge[0].idnaloge,
-                        nal2: angularBridge.$podatki.naloge[1].idnaloge,
-                        nal3: angularBridge.$podatki.naloge[2].idnaloge,
-                        nal4: angularBridge.$podatki.naloge[3].idnaloge,
-                        koda1: editor0.getValue(),
-                        koda2: editor1.getValue(),
-                        koda3: editor2.getValue(),
-                        koda4: editor3.getValue()
-                    },
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(data){
-                        console.log('dela!!!!!!!!!!!!');
-                        alert('uspesno oddal test!!!');
-                    },
-                    error: function(xhr, status, error){
-                        console.log(error);
-                    }
-                })
-            });
-            */
-            
-        </script>
-    </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
