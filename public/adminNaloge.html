@@ -24,7 +24,7 @@
         </script>
         <link rel="stylesheet" type="text/css" href="/CSS/meni.css">
 
-        <title>Hello, world!</title>
+        <title>Naloge</title>
       </head>
 
       <style>
@@ -79,16 +79,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/novTest.html">Nov test <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="javascript:history.back()">Nazaj</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminNaloge.html">Vse naloge</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/vsiDijaki">Vsi dijaki</a>
-                    </li>
+                    
                 </ul>
             </div>
+
+            <li class="nav-item">
+                    <a class="nav-link" href="/">Odjava</a>
+                </li>
+
         </nav>
         
         
@@ -115,11 +115,7 @@
                                     </th>
                                     <th>pike
                                         <br>
-                                        <select ng-model="search.pike">
-                                            <option value="">vse</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select> 
+                                        
                                     </th>
                                     <th>vrstaNaloge
                                         <br>
@@ -128,6 +124,7 @@
                                             <option value="nizi">nizi</option>
                                             <option value="stevila">stevila</option>
                                             <option value="seznami">seznami</option>
+                                            <option value="objekti">objekti</option>
                                           
                                         </select>
                                     </th>

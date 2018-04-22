@@ -53,10 +53,11 @@ app.get('/', function (req, res) {
 */
 
 app.get('/', function (req, res) {
-  res.sendfile('register.html');
+  res.sendfile('login.html');
 });
 app.get('/login', function (req, res) {
-  res.sendfile('login.html');
+  
+  res.sendfile('register.html');
 });
 
 //  app.post('/index.html', function (req, res) {
@@ -79,21 +80,32 @@ app.post('/register.html', function (req, res){
       console.log("Connected!");
       //console.log(document.getElementById("username").value);
       const podatki = req.body;
-      //console.log(podatki);
-      var sql = "INSERT INTO uporabniki (username, password) VALUES ('"+podatki.username+"',"+ "'"+podatki.password+"')";
-      console.log(sql);
-      con.query(sql, function (err, result) {
-          if (err) throw err;
-      console.log("1 record inserted");
-  });
- // window.location.href= 'htttp://127.0.0.1:3000/index.html';
+
+      con.query('SELECT * FROM uporabniki where username = "' + podatki.username + '"', function (err, result1) {
+        if (err) throw err;
+            if(result1.length > 0){
+              
+              res.redirect('/');
+            }else{
+
+              var sql = "INSERT INTO uporabniki (username, password) VALUES ('"+podatki.username+"',"+ "'"+podatki.password+"')";
+                console.log(sql);
+                con.query(sql, function (err, result) {
+                    if (err) throw err;
+                console.log("1 record inserted");
+                res.sendfile('login.html');
+            });
+
+            }
+        });
+
+      
 
   });
-
-  res.sendfile('login.html');
 
   
 });
+
 
 
 app.post('/upisan.html', function (req, res){
@@ -102,6 +114,8 @@ app.post('/upisan.html', function (req, res){
   sess.ime = req.body.username;
   seson(sess);
   console.log(sess);
+
+
   
   const con = mysql.createConnection({
       host: "127.0.0.1",
@@ -129,7 +143,14 @@ app.post('/upisan.html', function (req, res){
           var ime = result[i].username;
           var pass = result[i].password;
       if(ime==podatki.username && pass==podatki.password){
-          res.sendfile('./izberi.html');
+
+          if(podatki.username == 'admin'){
+            res.sendfile('./izberiAdmin.html');
+          }else{
+            res.sendfile('./izberiUporabnik.html');
+
+          }
+
           load=1;
           break;
       }
@@ -204,9 +225,20 @@ app.get('/nalogeTest', function(req, res){
        throw err;
      }
     // Use the connection
-    connection.query('SELECT * FROM naloge WHERE pike=2', function (error, results, fields) {
+    connection.query('SELECT * FROM naloge', function (error, results, fields) {
       if (error) throw error;
-      dodaj(results);
+
+      
+
+      var randSt = [];
+      while(randSt.length < 8){
+          var randomnumber = Math.round(Math.random()* results.length) - 1;
+          if(randSt.indexOf(randomnumber) > -1) continue;
+          randSt[randSt.length] = randomnumber;
+      }
+
+      res.send([results[randSt[0]], results[randSt[1]], results[randSt[2]], results[randSt[3]]]);
+      
       //console.log(results[randSt1]);
       //console.log(results[randSt2]);
       //console.log(results);
@@ -218,58 +250,15 @@ app.get('/nalogeTest', function(req, res){
      
       // Don't use the connection here, it has been returned to the pool.
     });
-    function dodaj(res){
-      dodaj2(res);
-    }
+    
   });
 
-  function dodaj2(respond){
-    
-    var randSt1 = Math.round( Math.random() * (respond.length - 1));
-    var randSt2 = Math.round( Math.random() * (respond.length - 1));
-    while(randSt1 == randSt2){
-      randSt2 = Math.round( Math.random() * (respond.length - 1));
-    }
-    Naloge.push(respond[randSt1]);
-    Naloge.push(respond[randSt2]);
-    
-  }
+  
 
 
-  pool.getConnection(function(err, connection) {
-    // Use the connection
-    connection.query('SELECT * FROM naloge WHERE pike=3', function (error, results, fields) {
-      
-      dodaj(results);
-      //console.log(results);
-      //Naloge[2] = results[randSt1];
-      //Naloge[3] = results[randSt2];
-      // And done with the connection.
-      connection.release();
   
-      // Handle error after the release.
-      if (error) throw error;
   
-      // Don't use the connection here, it has been returned to the pool.
-    });
-    function dodaj(res){
-      dodaj1(res);
-    }
-  });
   
-  function dodaj1(respond){
-    var randSt3 = Math.round( Math.random() * (respond.length - 1));
-    var randSt4 = Math.round( Math.random() * (respond.length - 1));
-    while(randSt3 == randSt4){
-      randSt4 = Math.round( Math.random() * (respond.length - 1));
-    }
-    console.log(randSt3);
-    console.log(randSt4);
-    Naloge.push(respond[randSt3]);
-    Naloge.push(respond[randSt4]);
-    console.log(Naloge);
-    res.send(Naloge);
-  }
 
   //console.log(Naloge);
   //res.send(Naloge);
@@ -530,7 +519,8 @@ app.post('/dodajNalogo', function(req,res){
 
   pool.query('INSERT INTO `naloge`(`navodila`, `pike`, `tipNaloge`) VALUES ("' + x.navodila + '",' + x.tocke + ',"' + x.tip + '")', function (error, result) {
       console.log(result);
-      pool.query('INSERT INTO `resitve`(`idNaloge`, `vnos1`, `resitev1`, `vnos2`, `resitev2`, `vnos3`, `resitev3`, `vnos4`, `resitev4`, `vnos5`, `resitev5`) VALUES (' + result.insertId + ', "' + x.vnos1 + '","' + x.resitev1 + '","' + x.vnos2 + '","' + x.resitev2 + '","' + x.vnos3 + '","' + x.resitev3 + '","' + x.vnos4 + '","' + x.resitev4 + '","' + x.vnos5 + '","' + x.resitev5 + '")', function (error1, result1) {
+      console.log("INSERT INTO `resitve`(`idNaloge`, `vnos1`, `resitev1`, `vnos2`, `resitev2`, `vnos3`, `resitev3`, `vnos4`, `resitev4`, `vnos5`, `resitev5`) VALUES (" + result.insertId + ", `" + x.vnos1 + "`,`" + x.resitev1 + "`,`" + x.vnos2 + "`,`" + x.resitev2 + "`,`" + x.vnos3 + "`,`" + x.resitev3 + "`,`" + x.vnos4 + "`,`" + x.resitev4 + "`,`" + x.vnos5 + "`,`" + x.resitev5 + "`)");
+      pool.query("INSERT INTO `resitve`(`idNaloge`, `vnos1`, `resitev1`, `vnos2`, `resitev2`, `vnos3`, `resitev3`, `vnos4`, `resitev4`, `vnos5`, `resitev5`) VALUES (" + result.insertId + ", '" + x.vnos1 + "','" + x.resitev1 + "','" + x.vnos2 + "','" + x.resitev2 + "','" + x.vnos3 + "','" + x.resitev3 + "','" + x.vnos4 + "','" + x.resitev4 + "','" + x.vnos5 + "','" + x.resitev5 + "')", function (error1, result1) {
         console.log(result1);
         res.redirect('/adminDodaj');
     
