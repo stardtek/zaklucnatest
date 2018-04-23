@@ -67,7 +67,12 @@
   
 
 }
+.pop{
+                background-color: #356D8F;
+                color: #CDEAF4;
 
+
+            }
 
   
   </style>
@@ -190,11 +195,50 @@
             
 </div>
 <br>
-            <button type="submit" class="btn btn-outline-secondary neki">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary neki">Dodaj nalogo</button>
+            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-secondary neki" data-toggle="modal" data-target="#exampleModal">
+              Preberi me!
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog pop" role="document">
+                <div class="modal-content pop">
+                  <div class="modal-header pop">
+                    <h5 class="modal-title pop" id="exampleModalLabel">Navodila za vnos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    POZOR: 
+                    Števila se vnaša na naslednji način: 
+                    <br>
+                    1, 100, 3452
+                    <br>
+                    Vse besede oziroma nize vnesite z dvojnimi narekovaji
+                    <br>
+                    Primer: "beseda", "to je niz"
+                    <br>
+                    Sezname je potrebno unesti na nasledni način: 
+                    <br>
+                    Primer: [prvi, drugi, tretji]
+                    <br>
+                    Objetke je potrebno vnesti na naslednji način: 
+                    <br>
+                    Primer: Objekt(atribul1, atribul2)
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary neki" data-dismiss="modal">Zapri</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
           </form>
-
-
-
 
       </div>
       </div>
