@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 let path = require('path');
 const async = require('async');
-var wait = require('wait.for');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
@@ -38,11 +37,6 @@ var pool = mysql.createPool({
   password : 'usbw',
   database : 'baza'
 });
-
-let assert = require('assert');
-let pythonBridge = require('python-bridge');
- 
-let python = pythonBridge();
 
 var PythonShell = require('python-shell');
 
@@ -266,23 +260,7 @@ app.get('/nalogeTest', function(req, res){
 });
 
 
-app.get('/nadaljujTest', function(req, res){
-  pool.getConnection(function(err, connection) {
-    // Use the connection
-    connection.query('SELECT * FROM testi JOIN naloge ON naloge_idnaloge1=idnaloge1', function (error, results, fields) {
 
-      console.log(results);
-      res.send(results);
-      // And done with the connection.
-      connection.release();
-   
-      // Handle error after the release.
-      if (error) throw error;
-   
-      // Don't use the connection here, it has been returned to the pool.
-    });
-  });
-});
 
 var fs = require('fs');
 
@@ -409,12 +387,15 @@ app.post('/python', function(req, res){
                   if (err) console.log(err);
                   // results is an array consisting of messages collected during execution
                   //console.log(results);
-                  results[0] = results[0].replace('\r', '');
-                  //console.log(results[0]);
-                  if(results[0] == seznam2[value2]){
-                    //console.log('pravilno');
-                    
-                    dosezeneTocke[value1] += 1;
+                  if(results){
+
+                    results[0] = results[0].replace('\r', '');
+                    //console.log(results[0]);
+                    if(results[0] == seznam2[value2]){
+                      //console.log('pravilno');
+                      
+                      dosezeneTocke[value1] += 1;
+                    }
                     
                   }else{
                     //console.log('zajebao');

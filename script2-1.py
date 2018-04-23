@@ -1,3 +1,7 @@
-def rat(x):
-    print("ar")
-rat("rok")
+def izbrisSAM(niz):
+    nov = ""
+    for i in range(len(niz)):
+        if(niz[i] not in "aeiuo"):
+            nov += niz[i]
+    print(nov)
+izbrisSAM("we are gods")
